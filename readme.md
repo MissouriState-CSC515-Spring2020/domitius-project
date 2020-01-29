@@ -13,7 +13,7 @@ Clone this repository and install its dependencies:
 ## Commands
 `npm run build` builds the application to the `public/` directory in chunks, along with a sourcemap for debugging (if `sourcemap` is set to true in [rollup.config.js](./rollup.config.js)).
 
-`npm start` launches a server, using [serve](https://github.com/zeit/serve).
+`npm start` launches a server, using [serve](https://github.com/zeit/serve) (localhost:5000).
 
 `npm run watch` will continually rebuild the application as your source files change.
 
