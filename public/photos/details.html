@@ -5,6 +5,7 @@
 	<meta name='viewport' content='width=device-width'>
 	<title>Frog in the Rain || Details</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/main.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -13,13 +14,16 @@
 	<!--Nav Bar -->
 	<nav class="row navbar navbar-expand-sm bg-light navbar-light border-bottom mb-4 pt-3 pb-3">
 		<a class="navbar-brand text-decoration-none" href="../index.html"><h3 class="text-dark">Company Name</h3></a>
-	  	<ul class="offset-2 offset-sm-3 offset-md-5 offset-lg-7 navbar-nav d-none d-sm-flex">
+		<ul class="offset-1 offset-sm-2 offset-md-4 offset-lg-6 navbar-nav d-none d-sm-flex">
+			<li class="nav-item text-white">
+				<a href="../index.html" class="nav-link">Home</a>
+			</li>
 			<li class="nav-item dropdown text-white">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Categories
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item" href=../categories/categoriesHome.html>Art</a>
+				<a class="dropdown-item" href="../categories/categoriesHome.html">Art</a>
 				<a class="dropdown-item" href="../categories/categoriesHome.html">Category 2</a>
 				<a class="dropdown-item" href="../categories/categoriesHome.html">Etc</a>
 
@@ -32,22 +36,22 @@
 				Albums
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#">Album 1</a>
-					<a class="dropdown-item" href="#">Album 2</a>
-					<a class="dropdown-item" href="#">Etc</a>
+					<a class="dropdown-item" href="../categories/categoriesHome.html">Album 1</a>
+					<a class="dropdown-item" href="../categories/categoriesHome.html">Album 2</a>
+					<a class="dropdown-item" href="../categories/categoriesHome.html">Etc</a>
 	
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">All</a>
+					<a class="dropdown-item" href="../categories/categoriesHome.html">All</a>
 			</li>
 		</ul>
 
 		<!-- Collapse button -->
-		<div class="mobileNavBar d-sm-none ">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNavBar"
+		<div class="mobileNavBar d-sm-none col-5">
+			<button class="navbar-toggler offset-8" type="button" data-toggle="collapse" data-target="#mobileNavBar"
 			aria-controls="mobileNavBar" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="text-info">
-					Hamburger Menu
-				</span>
+				<div id="mobileHamburger">
+					<img src="https://static.thenounproject.com/png/659803-200.png" alt="tempHamburgerMenu">
+				</div>
 			</button>
 
 			<!-- Collapsible content -->
@@ -55,14 +59,14 @@
 
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
+					<li class="nav-item border border-dark bg-white p-2">
 						<a class="nav-link" href="../index.html">Home</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item border border-dark bg-white p-2">
 						<a class="nav-link" href="../categories/categoriesHome.html">Categories</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Albums</a>
+					<li class="nav-item border border-dark bg-white p-2">
+						<a class="nav-link" href="../categories/categoriesHome.html">Albums</a>
 					</li>
 				</ul>
 				<!-- Links -->
@@ -103,20 +107,4 @@
 		</footer>
 	</div>
 </body>
-<style>
-	img {
-		width: 100%;
-		height: 250px;
-		transition: all .30s ease-in-out;
-	}
-
-	@media screen and (min-width: 845px) {
-		img:hover {
-			transform: scale(1.5);
-			border-radius: 10%;
-			cursor: pointer;
-            z-index: 1;
-		}		
-	}
-</style>
 </html>
