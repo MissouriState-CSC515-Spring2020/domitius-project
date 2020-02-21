@@ -1,10 +1,10 @@
 <template>
-	<!-- VueImage is a simple img tag wrapped in an anchor going to the detail route
+	<!-- VueImage is a simple img tag wrapped in a router going to the detail route
 	img accepts a src , alt tag, and a string of classes -->
 
-	<a href="/detail">
+	<router-link :to="'/detail'">
 		<img :src=src :alt=alt v-bind:class=classes>
-	</a>
+	</router-link>
 </template>
 
 <script>
