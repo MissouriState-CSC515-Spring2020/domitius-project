@@ -1,12 +1,22 @@
 {
-  "name": "vuetemplateproject",
+  "name": "csc515-domitius-project",
   "version": "0.1.0",
+  "description": "Class project for CSC515 - Advanced Internet Programming",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MissouriState-CSC515-Spring2020/domitius-project.git"
+  },
+  "author": "Domitius <domitius.rc@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+  "url": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project/issues",
+  "homepage": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project#readme",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",

@@ -1,4 +1,4 @@
-# vuetemplateproject
+# csc515-domitius-project
 
 ## Project setup
 ```
