@@ -3,7 +3,6 @@
         <vue-image :src=src :alt=alt
         classes=""></vue-image>
     </div>
-    <!-- offset-1 offset-sm-0 col-10 col-sm-4 col-md-3 col-lg-2 mb-3 -->
 </template>
 <script>
 import VueImage from '@/components/VueImage'

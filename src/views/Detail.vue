@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div class="main">
                 <main>
                     <image-detail title="Lord of the Rings Scene" src="https://wallpapercave.com/wp/kGt54AQ.jpg" 
@@ -13,10 +12,6 @@
                     downloadUrl="https://wallpapercave.com/wp/kGt54AQ.jpg"></image-detail>
                 </main>
             </div>
-
-
-
-        
     </div>
 </template>
 

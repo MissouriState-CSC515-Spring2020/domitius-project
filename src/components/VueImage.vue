@@ -10,7 +10,11 @@
 <script>
 export default {
 	name: 'VueImage',
-	props: ['src', 'alt', 'classes']
+	props: {
+		src: String,
+		alt: String,
+		classes: String
+	}
 }
 </script>
 
