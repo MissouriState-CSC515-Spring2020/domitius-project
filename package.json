@@ -15,7 +15,8 @@
   "author": "Domitius <domitius.rc@gmail.com>",
   "license": "ISC",
   "bugs": {
-  "url": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project/issues",
+    "url": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project/issues"
+  },
   "homepage": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project#readme",
   "dependencies": {
     "bootstrap": "^4.4.1",
