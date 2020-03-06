@@ -21,7 +21,7 @@
     </div>
 </template>
 <script>
-import GalleryImage from '@/components/gallery/components/GalleryImage'
+const GalleryImage = () => import('@/components/gallery/components/GalleryImage')
 export default {
     name: 'Gallery',
     components: {

@@ -1,19 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/Home'
-import Category from '@/views/Category'
-import Detail from '@/views/Detail'
 
 Vue.use(VueRouter)
 
+function loadView(view) {
+    return () => import(/* webpackChunkName: "view-[request]" */ `@/views/${view}.vue`)
+}
+
 export default new VueRouter({
-    mode: 'history',
     routes: [
         {
             path: '/',
             alias: '/home',
             name: 'Home',
-            component: Home,
+            component: loadView('Home'),
             meta: {
                 title: 'Home'
             }
@@ -21,7 +21,7 @@ export default new VueRouter({
         {
             path: '/category',
             name: 'Category',
-            component: Category,
+            component: loadView('Category'),
             meta: {
                 title: 'Category'
             }
@@ -29,7 +29,7 @@ export default new VueRouter({
         {
             path: '/detail',
             name: 'Detail',
-            component: Detail,
+            component: loadView('Detail'),
             meta: {
                 title: 'Details'
             }

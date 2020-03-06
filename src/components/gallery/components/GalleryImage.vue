@@ -5,7 +5,8 @@
     </div>
 </template>
 <script>
-import VueImage from '@/components/VueImage'
+const VueImage = () => import('@/components/VueImage')
+
 export default {
     name: 'GalleryImage',
     components: {

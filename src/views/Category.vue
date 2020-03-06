@@ -1,7 +1,7 @@
 <template>
     <div>
         <page-title title="Lord of the Rings"></page-title>
-        <gallery tempSrcImage="https://wallpapercave.com/wp/kGt54AQ.jpg" alt="LOTR"></gallery>
+        <gallery tempSrcImage="img/LOTR.jpg" alt="LOTR"></gallery>
     </div>
 </template>
 

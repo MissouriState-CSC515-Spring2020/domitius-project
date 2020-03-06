@@ -2,7 +2,7 @@
     <div>
         <div class="main">
                 <main>
-                    <image-detail title="Lord of the Rings Scene" src="https://wallpapercave.com/wp/kGt54AQ.jpg" 
+                    <image-detail title="Lord of the Rings Scene" src="img/LOTR.jpg" 
                     imageAlt="LOTR" descriptionText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
