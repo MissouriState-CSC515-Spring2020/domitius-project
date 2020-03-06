@@ -21,7 +21,7 @@
 
 		<!-- Collapse button -->
 		<div class="mobileNavBar d-sm-none col-5">
-			<button class="navbar-toggler offset-8" type="button" data-toggle="collapse" data-target="#mobileNavBar"
+			<button class="navbar-toggle offset-8" type="button" data-toggle="collapse" data-target="#mobileNavBar"
 			aria-controls="mobileNavBar" aria-expanded="false" aria-label="Toggle navigation">
 				<div id="mobileHamburger">
 					<img src="img/icons/hamburger-icon.png" alt="HamburgerMenu">
@@ -57,6 +57,10 @@ export default {
 </script>
 
 <style scoped>
+	body {
+		overflow-x: hidden;
+	}
+
     .mobileNavBar {
         z-index: 1;
     }
