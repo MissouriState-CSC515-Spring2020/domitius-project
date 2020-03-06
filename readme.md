@@ -10,6 +10,11 @@ npm install
 npm run serve
 ```
 
+### Production Serve (ServiceWorker)
+```
+http-server dist/
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
