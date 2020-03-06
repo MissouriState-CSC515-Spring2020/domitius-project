@@ -25,5 +25,14 @@ npm run build
 npm run lint
 ```
 
+### First Run Instructions
+```
+git clone https://github.com/MissouriState-CSC515-Spring2020/domitius-project.git
+npm install
+npm run build
+npm run serve
+or
+http-server dist/
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
