@@ -12,7 +12,7 @@ npm run serve
 
 ### Production Serve (ServiceWorker)
 ```
-http-server dist/
+npm run prod
 ```
 
 ### Compiles and minifies for production
@@ -32,7 +32,7 @@ npm install
 npm run build
 npm run serve
 or
-http-server dist/
+npm run prod
 ```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
