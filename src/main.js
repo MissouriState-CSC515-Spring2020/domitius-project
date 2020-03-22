@@ -1,7 +1,12 @@
-// even though Rollup is bundling all your files together, errors and
-// logs will still point to your original source modules
-console.log('if you have sourcemaps enabled in your devtools, click on main.js:5 -->');
+import Vue from 'vue'
+import App from './App.vue'
+import router from '@/router'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import('./update.js').then(updateExports => {
-    updateExports.default();
-});
+Vue.config.productionTip = false
+
+new Vue({
+  render: h => h(App),
+  router,
+}).$mount('#app')
