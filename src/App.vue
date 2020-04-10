@@ -3,6 +3,8 @@
   <div id="app" class="container-fluid">
       <!-- Every view will contain a nav bar -->
       <navigation-bar></navigation-bar>
+      <!-- Every page will have a search component -->
+      <search></search>
       <!-- Every view will contain a router -->
       <router-view></router-view>
       <!-- Every view will have a footer -->
@@ -12,6 +14,7 @@
 
 <script>
 import NavigationBar from '@/components/NavigationBar'
+import Search from '@/components/Search'
 import VueFooter from '@/components/VueFooter'
 
 export default {
@@ -27,6 +30,7 @@ export default {
   },
   components: {
     NavigationBar,
+    Search,
     VueFooter
   }
 }
