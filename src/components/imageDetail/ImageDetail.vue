@@ -11,18 +11,6 @@
             <description :descriptionText=descriptionText :dateUpload=dateUploaded :dimensions=dimensions
             :tags=tags :downloadUrl=downloadUrl></description>
             </div>
-                <!-- <div class="d-none d-md-block col-5 p-5" id="photoSpecs">
-                    <p>Date Uploaded: <span class="text-muted">2/5/2020</span></p>
-                    <p>Dimensions: <span class="text-muted">500 x 600</span></p>
-                    <p>Tags: <span class="text-muted">frog, green, rain, pairing</span></p>
-                    <a href="#">Download</a>
-                </div>
-                <span class="col-12 d-md-none"><a href="#">Download</a></span>
-            </div>
-            <div class="col-10 mt-2 p-1" id="photoDescription">
-                <h5>Description:</h5>
-                <p>{{ descriptionText }}</p>
-            </div> -->
         </div>
     </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
 
     <!--Nav Bar -->
-	<nav class="row navbar navbar-expand-sm bg-light navbar-light border-bottom mb-5 pt-3 pb-3">
+	<nav class="row navbar navbar-expand-sm bg-light navbar-light border-bottom pt-3 pb-3">
         <router-link :to="'/'" class="navbar-brand text-decoration-none text-dark"><h3>Company Name</h3></router-link> 
 		<ul class="offset-1 offset-sm-2 offset-md-4 offset-lg-6 navbar-nav d-none d-sm-flex">
 			<li class="nav-item text-white">
