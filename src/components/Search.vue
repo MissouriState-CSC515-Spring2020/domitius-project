@@ -1,5 +1,6 @@
 <template>
     <form class="row mb-4 bg-dark p-3">
+
         <div class="inputWrapper mb-3 col-12 row">
             <div class="form-group col-2 m-0">
                 <select class="form-control" v-model="searchType">
@@ -11,26 +12,28 @@
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
-
                 </select>
             </div>
             <input type="text" v-model="searchTerm" class="col-6 mx-2" placeholder="Search Text, Term, Channel" id="youtubeSearchTerm">
-            <button class="btn btn-primary col-1 ml-2 mb-2" id="youtubeSearchBtn" @click.prevent="submitRequest">Submit</button>
-            <button v-if="items.length > 0" class="btn btn-danger col-1 ml-2 mb-2" id="youtubeSearchBtn" @click.prevent="items = []">Clear</button>
+            <button class="btn btn-primary col-1 ml-2 mb-2" @click.prevent="submitRequest">Submit</button>
+            <button v-if="items.length > 0" class="btn btn-danger col-1 ml-2 mb-2" @click.prevent="items = []">Clear</button>
         </div>
+
         <div id="resultWrapper">
             <div class="row overflow-wrap">
                 <div class="d-inline-block col-2" v-for="item in items" :key="item.etag">
-                    <search-thumbnail @click.capture="console.log('clicked')" :srcLink=item.snippet.thumbnails.default.url :etag=item.etag></search-thumbnail>
+                    <search-thumbnail :srcLink=item.snippet.thumbnails.default.url :etag=item.etag></search-thumbnail>
                 </div>
             </div>
         </div>
+
     </form>
 </template>
 <script>
 import SearchThumbnail from './SearchThumbnail.vue';
-    // Do we need to lock this away?
-    const apiKey = 'AIzaSyBIwJbl8s6Q6DmCCTj-aqh3vfCNX4gz-dc';
+    
+// Do we need to lock this away?
+const apiKey = 'AIzaSyBIwJbl8s6Q6DmCCTj-aqh3vfCNX4gz-dc';
 
 export default {
     data: function () {
@@ -80,9 +83,7 @@ export default {
                 }
             } else {
                 this.fetchVideo();
-            }
-        
-           
+            }           
         },
         fetchVideo: function() {
             fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${this.resultNumber}&q=${this.searchTerm}&key=${apiKey}`)
@@ -99,12 +100,11 @@ export default {
             }).catch((error) => {
                 console.log(error);
             });
-}
+        }
     }
 }
 
-
-
+// TODO REMOVE THESE UNUSED FUNCTIONS
 // function createIframe(videoId) {
 //     let iframe = document.createElement('iframe');
 //     iframe.width = 560;
