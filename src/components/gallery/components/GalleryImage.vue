@@ -1,16 +1,14 @@
 <template>
-    <div class="offset-1 offset-sm-0 col-10 col-sm-4 col-md-3 col-lg-2 mb-3">
+    <div>
         <vue-image :src=src :alt=alt
         classes=""></vue-image>
     </div>
 </template>
 <script>
-const VueImage = () => import('@/components/VueImage')
-
 export default {
     name: 'GalleryImage',
     components: {
-        VueImage
+        VueImage : () => import('@/components/VueImage')
     },
     props: {
         src: String,

@@ -15,14 +15,11 @@
     </div>
 </template>
 <script>
-const VueImage = () => import('@/components/VueImage')
-const Description = () => import('@/components/imageDetail/components/Description')
-
 export default {
     name: 'ImageDetail',
     components: {
-        VueImage,
-        Description
+        VueImage : () => import('@/components/VueImage'),
+        Description : () => import('@/components/imageDetail/components/Description')
     },
     props: {
         title: String,

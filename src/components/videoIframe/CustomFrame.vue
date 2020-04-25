@@ -23,8 +23,6 @@
     </div>
 </template>
 <script>
-const Description = () => import('@/components/imageDetail/components/Description')
-
 export default {
     name: 'CustomFrame',
     props: {
@@ -37,7 +35,7 @@ export default {
         downloadUrl: String
     },
     components: {
-        Description
+        Description : () => import('@/components/imageDetail/components/Description')
     }
 }
 </script>

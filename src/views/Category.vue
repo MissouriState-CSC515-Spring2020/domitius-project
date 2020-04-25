@@ -1,18 +1,16 @@
 <template>
     <div>
         <page-title :title=this.categoryTitle></page-title>
-        <gallery :tempSrcImage=this.thumbnailDefault :alt=this.categoryTitle></gallery>
+        <gallery :srcList=this.thumbnailDefault :alt=this.categoryTitle></gallery>
     </div>
 </template>
 
 <script>
-import PageTitle from '@/components/PageTitle'
-import Gallery from '@/components/gallery/Gallery'
 export default {
     name: 'CategoryView',
     components: {
-        PageTitle,
-        Gallery
+        PageTitle : () => import('@/components/PageTitle'),
+        Gallery : () => import('@/components/gallery/Gallery')
     },
     data: function() {
         return {
@@ -29,7 +27,7 @@ export default {
         if (sessionStorage.getItem('batman')) {
             let itemOne = JSON.parse(sessionStorage.getItem('batman'))[0];
             console.log(itemOne);
-            this.thumbnailDefault = itemOne.snippet.thumbnails.default.url;
+            this.thumbnailDefault = [itemOne.snippet.thumbnails.default.url];
             this.categoryTitle = itemOne.snippet.title;
             console.log(`channel title ${this.channelTitle}`);
         } else {

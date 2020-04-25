@@ -14,10 +14,6 @@
 </template>
 
 <script>
-import CustomFrame from '@/components/videoIframe/CustomFrame'
-
-console.log()
-
 export default {
     /**
      * TODO, Right now this is a hardcoded search value. We need to update it to where when any of the thumbnails
@@ -33,7 +29,7 @@ export default {
         }
     },
     components: {
-        CustomFrame
+        CustomFrame : () => import('@/components/videoIframe/CustomFrame')
     },
     computed: {
         videoUrlComputed() {
