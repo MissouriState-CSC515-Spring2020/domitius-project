@@ -8,39 +8,23 @@
                 <router-link :to="'/'" class="nav-link">Home</router-link>
 			</li>
 			<li class="nav-item dropdown text-white">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Categories
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <router-link :to="'/category'" class="dropdown-item">Art</router-link>
-                    <router-link :to="'/category'" class="dropdown-item">Category 2</router-link>
-                    <router-link :to="'/category'" class="dropdown-item">Etc</router-link>
-
-                    <div class="dropdown-divider"></div>
-                    <router-link :to="'/category'" class="dropdown-item">All</router-link>
-                </div>
+				<router-link class="nav-link" :to="'/category'">
+					Categories
+				</router-link>
 			</li>
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Albums
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <router-link :to="'/category'" class="dropdown-item">Album 1</router-link>
-                    <router-link :to="'/category'" class="dropdown-item">Album 2</router-link>
-                    <router-link :to="'/category'" class="dropdown-item">Etc</router-link>
-
-					<div class="dropdown-divider"></div>
-                    <router-link :to="'/category'" class="dropdown-item">All</router-link>
-				</div>
+				<router-link class="nav-link" :to="'/category'">
+					Albums
+				</router-link>
 			</li>
 		</ul>
 
 		<!-- Collapse button -->
 		<div class="mobileNavBar d-sm-none col-5">
-			<button class="navbar-toggler offset-8" type="button" data-toggle="collapse" data-target="#mobileNavBar"
+			<button class="navbar-toggle offset-8" type="button" data-toggle="collapse" data-target="#mobileNavBar"
 			aria-controls="mobileNavBar" aria-expanded="false" aria-label="Toggle navigation">
 				<div id="mobileHamburger">
-					<img src="https://static.thenounproject.com/png/659803-200.png" alt="tempHamburgerMenu">
+					<img src="img/icons/hamburger-icon.png" alt="HamburgerMenu">
 				</div>
 			</button>
 
@@ -73,6 +57,10 @@ export default {
 </script>
 
 <style scoped>
+	body {
+		overflow-x: hidden;
+	}
+
     .mobileNavBar {
         z-index: 1;
     }

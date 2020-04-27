@@ -27,8 +27,8 @@
     </div>
 </template>
 <script>
-import VueImage from '@/components/VueImage'
-import Description from '@/components/imageDetail/components/Description'
+const VueImage = () => import('@/components/VueImage')
+const Description = () => import('@/components/imageDetail/components/Description')
 
 export default {
     name: 'ImageDetail',

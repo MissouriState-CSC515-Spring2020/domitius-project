@@ -1,38 +1,33 @@
 {
   "name": "csc515-domitius-project",
   "version": "0.1.0",
-  "description": "Class project for CSC515 - Advanced Internet Programming",
   "private": true,
+  "description": "Class project for CSC515 - Advanced Internet Programming",
+  "author": "Domitius <domitius.rc@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
+    "prod": "http-server dist/",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MissouriState-CSC515-Spring2020/domitius-project.git"
-  },
-  "author": "Domitius <domitius.rc@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project/issues"
-  },
-  "homepage": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project#readme",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
+    "register-service-worker": "^1.6.2",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
+    "@vue/cli-plugin-pwa": "^4.2.3",
     "@vue/cli-service": "~4.2.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
+    "http-server": "^0.12.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -52,5 +47,14 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project/issues"
+  },
+  "homepage": "https://github.com/MissouriState-CSC515-Spring2020/domitius-project#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MissouriState-CSC515-Spring2020/domitius-project.git"
+  }
 }

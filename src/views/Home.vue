@@ -1,7 +1,7 @@
 <template>
     <div>
         <page-title title="Recent Photos"></page-title>
-        <gallery tempSrcImage="https://bachasoftware.com/wp-content/uploads/2019/07/form-with-vuejs.jpg" alt="Vue Logo"></gallery>
+        <gallery tempSrcImage="img\icons\android-chrome-192x192.png" alt="Vue Logo"></gallery>
     </div>
 </template>
 
