@@ -13,10 +13,6 @@
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar'
-import Search from '@/components/Search'
-import VueFooter from '@/components/VueFooter'
-
 export default {
   name: 'App',
   watch: {
@@ -29,17 +25,17 @@ export default {
     },
   },
   components: {
-    NavigationBar,
-    Search,
-    VueFooter
+    NavigationBar : () => import('@/components/NavigationBar'),
+    Search : () => import('@/components/youtubeSearch/Search'),
+    VueFooter : () => import('@/components/VueFooter')
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 </style>

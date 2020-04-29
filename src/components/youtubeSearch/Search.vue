@@ -3,25 +3,26 @@
         <form v-if="isDisplayed" class="row mb-4 bg-dark p-3">
             <div class="row col-12">
                 <div class="inputWrapper mb-3 col-12 row">
-                    <div class="form-group col-2 m-0">
+                    <div class="form-group col-8 col-md-2 mb-2 m-md-0">
                         <select class="form-control" v-model="searchType">
                             <option value="video">video</option>
                         </select>
                     </div>
-                    <div class="form-group col-2 m-0">
+                    <div class="form-group col-8 col-md-2 mb-2 m-md-0">
                         <select class="form-control" v-model="resultNumber">
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="25">25</option>
                         </select>
                     </div>
-                    <input type="text" v-model="searchTerm" v-if="items.length > 0" class="col-4 mx-2" placeholder="Search Text, Term, Channel" id="youtubeSearchTerm">
-                    <input type="text" v-model="searchTerm" v-if="items.length == 0" class="col-5 mx-2" placeholder="Search Text, Term, Channel" id="youtubeSearchTerm">
-                    <button class="btn btn-primary col-1 ml-2 mb-2" @click.prevent="submitRequest">Submit</button>
-                    <button @click.prevent="toggleSearch" class="btn btn-warning col-1 ml-2 mb-2">Toggle</button>
-                    <button v-if="items.length > 0" class="btn btn-danger col-1 ml-2 mb-2" @click.prevent="items = []">Clear</button>
+                    <input type="text" v-model="searchTerm" v-if="items.length > 0" class="col-12 col-md-4 mx-2 mb-2 p-2" placeholder="Search Text, Term, Channel">
+                    <input type="text" v-model="searchTerm" v-if="items.length == 0" class="col-12 col-md-5 mx-2 mb-2 p-2" placeholder="Search Text, Term, Channel">
+                    <button class="btn btn-primary col-12 col-md-1 ml-2 mb-2" @click.prevent="submitRequest">Submit</button>
+                    <button @click.prevent="toggleSearch" class="btn btn-warning col-12 col-md-1 ml-2 mb-2">Toggle</button>
+                    <button v-if="items.length > 0" class="btn btn-danger col-12 col-md-1 ml-2 mb-2" @click.prevent="items = []">Clear</button>
                 </div>
 
+                <!-- TODO WE NEED TO EXTRACT THE RESULT WRAPPER INTO A GALLERY -->
                 <div id="resultWrapper" class="w-100">
                     <div class="row overflow-wrap">
                         <div class="d-inline-block col-2" v-for="item in items" :key="item.etag">
@@ -41,12 +42,12 @@
 
 </template>
 <script>
-import SearchThumbnail from './SearchThumbnail.vue';
-    
+
 // Do we need to lock this away?
 const apiKey = 'AIzaSyBIwJbl8s6Q6DmCCTj-aqh3vfCNX4gz-dc';
 
 export default {
+    name: "Search",
     data: function () {
         return {
             items: [],
@@ -54,11 +55,17 @@ export default {
             parsedSearchTerm: '',
             searchType: 'video',
             resultNumber: 25,
-            isDisplayed: true
+            isDisplayed: true,
+            thumbnailList: []
         }    
     },
     components: {
-        SearchThumbnail
+        SearchThumbnail: () => import('@/components/youtubeSearch/SearchThumbnail.vue')
+    },
+    computed: {
+        showResults: function () {
+            return this.items.length > 0;
+        }
     },
     watch: {
         // When the route changes, clear search results.
@@ -79,14 +86,14 @@ export default {
                 this.parsedSearchTerm = `${this.searchTerm}${this.resultNumber}`.toLowerCase().trim();
                 // Check cache first
                 if (sessionStorage.getItem(this.parsedSearchTerm)) {
-                    this.items = JSON.parse(sessionStorage.getItem(this.parsedSearchTerm))
+                    this.items = JSON.parse(sessionStorage.getItem(this.parsedSearchTerm));
                 } else {
-                   this.fetchVideo();
-                } 
+                    this.fetchVideo();
+                }
             }         
         },
         fetchVideo: function() {
-            fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${this.resultNumber}&q=${this.searchTerm}&key=${apiKey}`)
+            return fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${this.resultNumber}&q=${this.searchTerm}&key=${apiKey}`)
             .then((res) => {
                 if (res.ok) {
                     return res.json();
@@ -98,6 +105,7 @@ export default {
                 // Store cache value and key.. {term}{# of results}
                 sessionStorage.setItem(this.parsedSearchTerm, JSON.stringify(json.items));
 
+                return true;
             }).catch((error) => {
                 console.log(error);
             });
@@ -105,19 +113,6 @@ export default {
     }
 }
 
-// TODO REMOVE THESE UNUSED FUNCTIONS
-// function createIframe(videoId) {
-//     let iframe = document.createElement('iframe');
-//     iframe.width = 560;
-//     iframe.height = 315;
-//     iframe.src = `https://www.youtube.com/embed/${videoId}`;
-//     iframe.frameBorder = 0;
-//     iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-
-//     return iframe;
-// }
-
-// function createThumbnail(srcLink) {
 //     // TODO, I want to be able dynamically create searchThumbanil components with router views attached to each
 //     // one. I also want each router view to have a queryParameter to distnguish which video was clicked. Even if we
 //     // just kept a single counter or something and added that to each json. Something basic like indexId. 
@@ -125,35 +120,6 @@ export default {
 //     // in an iframe with sandbox features enabled. It will also list video information like author, date released, 
 //     // maybe even comments if that's there.
 //     // We might also have a dropdown of keys in storage to act as our category page. Who knows
-
-
-
-//     let img = document.createElement('img');
-//     img.classList = "offset-1 offset-sm-0 col-10 col-sm-4 col-md-3 col-lg-2 mb-3";
-//     img.src = srcLink;
-
-//     // TODO move the methods and events into vue component
-//     img.addEventListener('click', function() {
-
-//     });
-
-
-//     return img;
-// }
-
-//  function displayThumbnails(items) {
-//      // web component
-//      console.log(items);
-//     let resultWrapper = document.getElementById('resultWrapper');
-//     resultWrapper.innerHTML = "";
-//     for (let i = 0; i < items.length; ++i) {
-//         if (i > 10) {
-//             break;
-//         }
-//     resultWrapper.appendChild(createThumbnail(items[i].snippet.thumbnails.default.url));
-//     }
-//  }
-
 </script>
 <style scoped>
     /* deep allows the styles to be passed down to it's children */
