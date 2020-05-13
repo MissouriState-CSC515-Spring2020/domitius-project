@@ -2,26 +2,72 @@
     <div>
         <div class="main">
                 <main>
-                    <image-detail title="Lord of the Rings Scene" src="img/LOTR.jpg" 
-                    imageAlt="LOTR" descriptionText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    dateUploaded="02/20/2020" dimensions="500 x 600" tags="Water, Ring, Frodo" 
-                    downloadUrl="https://wallpapercave.com/wp/kGt54AQ.jpg"></image-detail>
+                    <!-- Holds the description, video, video information, and title -->
+                    <custom-frame :title=this.videoTitle :src=videoUrlComputed 
+                    imageAlt="LOTR" :descriptionText=this.videoDescription
+                    dateUploaded="02/20/2020" dimensions="500 x 600" tags="Water, Ring, Frodo"
+                    :channelTitle=this.channelTitle
+                    downloadUrl="https://wallpapercave.com/wp/kGt54AQ.jpg"></custom-frame>
                 </main>
             </div>
     </div>
 </template>
 
 <script>
-import ImageDetail from '@/components/imageDetail/ImageDetail'
-
 export default {
+    /**
+     * TODO, Right now this is a hardcoded search value. We need to update it to where when any of the thumbnails
+     * from the result wrapper are clicked, it pulls up that thumbnails video descriptions.
+     */
     name: 'Detail',
+    data: function() {
+        return {
+            videoUrl: '',
+            videoTitle: '',
+            videoDescription: '',
+            channelTitle: ''
+        }
+    },
     components: {
-        ImageDetail
+        CustomFrame : () => import('@/components/videoIframe/CustomFrame')
+    },
+    computed: {
+        videoUrlComputed() {
+            return `https://www.youtube.com/embed/${this.videoUrl}`;
+        }
+    },
+    created() {
+        const apiKey = 'AIzaSyBIwJbl8s6Q6DmCCTj-aqh3vfCNX4gz-dc';
+        if (sessionStorage.getItem('batman')) {
+            let itemOne = JSON.parse(sessionStorage.getItem('batman'))[0];
+            console.log(itemOne);
+            this.videoUrl = itemOne.id.videoId;
+            this.videoTitle = itemOne.snippet.title;
+            this.videoDescription = itemOne.snippet.description;
+            this.channelTitle = itemOne.snippet.channelTitle;
+            console.log(`channel title ${this.channelTitle}`);
+        } else {
+            fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q="batman"&key=${apiKey}`)
+                        .then((res) => {
+                            if (res.ok) {
+                                return res.json();
+                            }
+                        }).then((json) => {
+                            console.log(json);
+                            this.videoUrl = json.items[0].id.videoId;
+                            this.videoTitle = json.items[0].snippet.title;
+                            this.videoDescription = json.items[0].snippet.description;
+                            this.channelTitle = json.items[0].snippet.channelTitle;
+                            // Display Thumbnails from recently fetched data.
+                            sessionStorage.setItem('batman', JSON.stringify(json.items));
+                           // displayThumbnails(json.items);
+
+                        }).catch((error) => {
+                            console.log(error);
+                        });
+        }
+        
     }
 }
+
 </script>

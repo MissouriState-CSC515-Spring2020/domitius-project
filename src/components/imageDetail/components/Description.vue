@@ -1,15 +1,6 @@
 <template>
     <div>
         <div class="row">
-            <div class="d-none d-md-block col-12 p-5" id="photoSpecs">
-                <p>Date Uploaded: <span class="text-muted">{{ dateUpload }}</span></p>
-                <p>Dimensions: <span class="text-muted">{{ dimensions }}</span></p>
-                <p>Tags: <span class="text-muted">{{ tags }}</span></p>
-                <a :href=downloadUrl download>Download</a>
-            </div>
-            <span class="col-12 d-md-none"><a :href=downloadUrl>Download</a></span>
-        </div>
-        <div class="row">
             <div class="col-11 mt-2 p-1" id="photoDescription">
                 <div class="row">
                     <h5 class="col-3">Description:</h5>
@@ -18,6 +9,15 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="d-none d-md-block col-12 p-5" id="photoSpecs">
+                <p>Channel Title: <span class="text-muted">{{ channelTitle }}</span></p>
+                <p>Dimensions: <span class="text-muted">{{ dimensions }}</span></p>
+                <p>Tags: <span class="text-muted">{{ tags }}</span></p>
+                <a :href=downloadUrl download>Download</a>
+            </div>
+            <span class="col-12 d-md-none"><a :href=downloadUrl>Download</a></span>
+        </div>
     </div>
 </template>
 <script>
@@ -25,7 +25,7 @@ export default {
     name: 'Description',
     props: {
         descriptionText: String,
-        dateUpload: String,
+        channelTitle: String,
         dimensions: String,
         tags: String,
         downloadUrl: String

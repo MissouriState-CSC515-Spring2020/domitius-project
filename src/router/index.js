@@ -8,6 +8,7 @@ function loadView(view) {
 }
 
 export default new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -28,7 +29,7 @@ export default new VueRouter({
         },
         {
             path: '/detail',
-            name: 'Detail',
+            name: 'detail',
             component: loadView('Detail'),
             meta: {
                 title: 'Details'
